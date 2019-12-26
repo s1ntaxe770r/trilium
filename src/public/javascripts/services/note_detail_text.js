@@ -129,6 +129,11 @@ class NoteDetailText {
                     }
                 });
 
+                if (glob.isDev) {
+                    await import('../../libraries/ckeditor/inspector.js');
+                    CKEditorInspector.attach(this.textEditor);
+                }
+
                 this.onNoteChange(() => this.ctx.noteChanged());
             }
         }
